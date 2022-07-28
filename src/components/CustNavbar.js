@@ -4,7 +4,6 @@ import "../App.css";
 import {
   Navbar,
   Nav,
-  NavDropdown,
   Form,
   Button,
   Container,
@@ -12,16 +11,13 @@ import {
   ToastContainer,
 } from "react-bootstrap";
 
+import { NavLink } from "react-router-dom";
+
 function CustNavbar() {
   const [show, setShow] = useState(false);
   return (
     <>
-      <div
-        aria-live="polite"
-        aria-atomic="true"
-        className="bg-dark position-relative"
-        style={{ minHeight: "0px" }}
-      >
+      <div className="bg-dark position-relative" style={{ minHeight: "0px" }}>
         <ToastContainer className="p-3" position="top-end">
           <Toast
             onClose={() => setShow(false)}
@@ -38,10 +34,15 @@ function CustNavbar() {
         </ToastContainer>
       </div>
 
-      <Navbar bg="dark" className="py-3" variant="dark" expand="lg" fixed="top">
+      <Navbar bg="dark" className="" variant="dark" expand="lg" fixed="top">
         <Container>
-          <Navbar.Brand className="" href="#">
-            <span className="">Tech Blogs</span>
+          <Navbar.Brand className="">
+            <NavLink
+              style={{ textDecoration: "none", color: "inherit" }}
+              to="/landing"
+            >
+              <span className="">Tech Blogs</span>
+            </NavLink>
           </Navbar.Brand>
           <Form className="d-flex w-50">
             <Form.Control
@@ -59,21 +60,14 @@ function CustNavbar() {
             </Button>
           </Form>
           <Nav className="cust-nav">
-            <Nav.Link href="#">Home</Nav.Link>
+            <NavLink to="/" style={{ textDecoration: "none" }}>
+              Home
+            </NavLink>
             <Nav.Link href="#">
-              <Button onClick={() => setShow(true)}>Sign In</Button>
+              <span className="signin" onClick={() => setShow(true)}>
+                Sign In
+              </span>
             </Nav.Link>
-            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
-            </NavDropdown>
           </Nav>
         </Container>
       </Navbar>

@@ -5,6 +5,29 @@
 .cust-nav{
   color: rgb(255, 255, 255) !important;
 }
+.cust-nav a {
+  padding: 0.5rem 1rem ;
+  color: rgb(255, 255, 255) !important;
+  border: 1px solid white;
+  border-radius: 10px;
+}
+
+.cust-nav a:hover{
+  background-color: rgb(255, 255, 255) !important;
+  border-radius: 10px;
+  color: rgb(43, 63, 175) !important;
+}
+
+.cust-nav a:nth-child(2){
+  background-color: rgb(43, 63, 175);
+  border-radius: 10px;
+  color:rgb(255, 255, 255);
+  padding: 0.5rem 1rem !important;
+  margin-left: 1rem;
+  border: none;
+}
+
+
 
 .space-for-nav{
   margin-top: 9vh;
@@ -15,6 +38,7 @@
   flex-direction: row;
   justify-content: space-between;
   margin: 0px 15px;
+  transition: all 5s ease-in-out;
   
 }
 
@@ -26,12 +50,12 @@
 .center{
   width: 55%;
   min-height: 10vh;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 .right{
   width: 20%;
-  border: 1px solid green;
+  /* border: 1px solid green; */
   min-height: 35vh;
 }
 
@@ -55,17 +79,32 @@
 
 .card-body-1{
   display: flex;
+  width: 100%;
   /* border: 3px solid red; */
   flex-direction: row;
   /* background-color: rgb(242, 244, 245); */
   /* color: black; */
 }
 
+.card-body-left {
+  width: 65%;
+  /* border: 3px solid red */
+}
+
 .image-right{
-  width: 20%;
-  padding-top: 10px;
+  width: 35%;
+  height: 170px;
   background-color: rgb(255, 255, 255);
-  border-radius: 50%;
+  /* border: 1px solid red; */
+  border-radius: 20px;
+  display: flex;
+}
+
+.image-right img{
+  width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
 }
 
 .w-80{
@@ -115,4 +154,52 @@
 }
 .modal-img img {
   width: 100%;
+}
+
+
+.post-container{
+  width: 100%;
+}
+
+.post-container img{
+  width : 50%;
+  object-fit: cover;
+}
+
+.post-container2{
+  display: flex;
+  width: 90%;
+  padding: 10px;
+  flex-wrap: wrap;
+  margin: 20px auto;
+  justify-content: center;
+  align-items: center;
+  background-color: blanchedalmond;
+}
+.other-posts{
+  width: 100%;
+  margin: 10px 0;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: rgb(255, 255, 255);
+}
+.other-posts h2{
+  font-size: 1.2rem;
+  text-align: center;
+  color: black;
+}
+.post-container2 h2{
+  width: 100%;
+  text-align: center;
+}
+
+.post-container2 p{
+  width: 100%;
+}
+
+.post-container2 img{
+  width : 50%;
+  object-fit: cover;
+
 }
