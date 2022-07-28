@@ -18,7 +18,7 @@ const Landing = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setTime((t) => (t + 1) % words.length);
-    }, 5000);
+    }, 3000);
     return () => clearInterval(interval);
     // eslint-disable-next-line
   }, []);
@@ -87,7 +87,7 @@ const Carousel1 = ({ children }) => {
         if (i < 5) return (i + 1) % count;
         else return (i = 2);
       });
-    }, 5000);
+    }, 3000);
 
     return () => clearInterval(intervalId);
   }, [count]);
