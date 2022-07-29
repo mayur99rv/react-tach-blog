@@ -41,7 +41,7 @@
 }
 p.appear{
     margin-top: 0;
-    animation: appear 5s ease-in-out infinite;
+    animation: appear 3s ease-in-out infinite;
     transition: all;
     font-size: 4em;
     /* border: 1px solid #fff; */
