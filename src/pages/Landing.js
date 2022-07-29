@@ -41,7 +41,7 @@ const Landing = () => {
             </p>
             <button>
               <NavLink
-                to="/"
+                to="/home"
                 style={{ textDecoration: "none", color: "inherit" }}
               >
                 {" "}

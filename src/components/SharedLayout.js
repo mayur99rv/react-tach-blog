@@ -14,7 +14,14 @@ function SharedLayout() {
       <div className="space-for-nav"></div>
       <div className="alerts">
         {show2 === true ? (
-          <Alert variant="primary" className="w-50 m-auto">
+          <Alert
+            style={{
+              backgroundColor: "#7138d6",
+              border: "none",
+              color: "white",
+            }}
+            className="w-50 m-auto"
+          >
             <CloseButton onClick={(e) => setShow2(false)} />
             <Alert.Heading>Hi 👻, Welcome to our web app</Alert.Heading>
             <p>

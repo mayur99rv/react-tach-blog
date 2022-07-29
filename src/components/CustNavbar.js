@@ -39,7 +39,7 @@ function CustNavbar() {
           <Navbar.Brand className="">
             <NavLink
               style={{ textDecoration: "none", color: "inherit" }}
-              to="/landing"
+              to="/"
             >
               <span className="">Tech Blogs</span>
             </NavLink>
@@ -60,7 +60,7 @@ function CustNavbar() {
             </Button>
           </Form>
           <Nav className="cust-nav">
-            <NavLink to="/" style={{ textDecoration: "none" }}>
+            <NavLink to="/home" style={{ textDecoration: "none" }}>
               Home
             </NavLink>
             <Nav.Link href="#">

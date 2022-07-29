@@ -7,30 +7,30 @@ function CustomCards({ post, idx }) {
   if (post === undefined) {
     return null;
   }
-  const { name, body, Date, title } = post;
+  const { name, body, Date, title, likes } = post;
 
   return (
     <>
-      <Card className="w-90 mt-10" bg="light" text="dark">
+      <Card className="w-90 mt-10 cust-card " bg="dark" text="light">
         <Card.Header
           style={{
-            backgroundColor: "white",
+            backgroundColor: "inherit",
           }}
         >
-          Written by {name} | {Date}
+          @ {name} <span> 📆 {Date} </span>
         </Card.Header>
         <Card.Body>
           <div className="card-body-1">
             <div className="card-body-left">
-              <Card.Title>Title: {title} </Card.Title>
-              <p style={{ fontSize: "18px" }}> {body} </p>
-              <footer
-                style={{ fontSize: "16px" }}
-                className="blockquote-footer"
-              >
-                Someone famous as <cite title="Source Title">{name}</cite>
-                <p style={{ color: "red" }}>Click on card to know more</p>
-              </footer>
+              <Card.Title> {title} </Card.Title>
+              <p> {body.slice(0, 150)} </p>
+
+              <div className="card-last">
+                <p style={{ color: "rgb(211, 72, 72)", fontWeight: "600" }}>
+                  Click on card to know more
+                </p>
+                <p> 💗 {likes} hearts </p>
+              </div>
             </div>
             <div className="image-right">
               {/* <Image className="w-80" src="./hacker.png" rounded fluid /> */}

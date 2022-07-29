@@ -1,7 +1,6 @@
 import CustomCards from "../components/CustCards";
-import { ButtonGroup, Button, Pagination, Overlay } from "react-bootstrap";
-import { Placeholder, Spinner } from "react-bootstrap";
-import { useState, useRef } from "react";
+import { ButtonGroup, Button, Pagination } from "react-bootstrap";
+import { useEffect, useState } from "react";
 import { users, userData } from "../data";
 import { NavLink } from "react-router-dom";
 
@@ -21,53 +20,89 @@ function Home() {
     return { ...post, name: user.name };
   });
   //   console.log(allPostsWithUsers);
-  allPostsWithUsers = allPostsWithUsers.sort((a, b) => {
-    return b.Date.localeCompare(a.Date, undefined, {
-      numeric: true,
-      sensitivity: "base",
+  const [posts, setPosts] = useState(allPostsWithUsers);
+  const [selection, setSelection] = useState("");
+  const sortByLikes = () => {
+    // console.log("sort by likes");
+    setSelection("Popular Posts ");
+    posts.sort((a, b) => b.likes - a.likes);
+    setPosts(posts);
+    // console.log(posts);
+  };
+
+  const sortByDate = () => {
+    setSelection("Latest Posts");
+    allPostsWithUsers = posts.sort((a, b) => {
+      return b.Date.localeCompare(a.Date, undefined, {
+        numeric: true,
+        sensitivity: "base",
+      });
     });
-  });
-  const [show, setShow] = useState(false);
-  const target = useRef(null);
+    setPosts(allPostsWithUsers);
+    // console.log(posts);
+  };
+
+  useEffect(() => {
+    // sortByLikes();
+    // console.log("updated");
+  }, [posts, selection]);
+
+  useEffect(() => {
+    sortByDate();
+    //eslint-disable-next-line
+  }, []);
+
   return (
     <>
       <div className="center">
         <div className="select-category">
-          <ButtonGroup style={{ alignText: "center" }}>
+          <ButtonGroup style={{ alignText: "center", border: "0px solid red" }}>
             <Button
               style={{ borderRadius: "10px" }}
-              className="mx-2"
-              variant="outline-dark"
-            >
-              Popular
-            </Button>
-            <Button
-              ref={target}
-              onClick={() => setShow(!show)}
-              style={{ borderRadius: "10px" }}
+              className="mx-2 "
               variant="dark"
-            >
-              Recent
-            </Button>
-            <Button
-              style={{ borderRadius: "10px" }}
-              className="mx-2"
-              variant="outline-dark"
+              onClick={function () {
+                console.log("clicked");
+                return sortByLikes();
+              }}
             >
               Most voted
+            </Button>
+            <Button
+              style={{ borderRadius: "10px" }}
+              variant="dark"
+              className="mx-2"
+              onClick={() => sortByDate()}
+            >
+              Recent
             </Button>
           </ButtonGroup>
         </div>
 
         <div className="cards">
-          {allPostsWithUsers.map((post, idx) => {
+          {
+            <div>
+              <h2
+                style={{
+                  color: "white",
+                  fontSize: "1.5em",
+                  marginLeft: "3rem",
+                }}
+              >
+                {" "}
+                {selection} :{" "}
+              </h2>
+            </div>
+          }
+          {posts.map((post, idx) => {
             //   console.log(idx, post);
             return (
               <NavLink
-                to={`/user/${post.id}/post/${post.pid}`}
+                to={`/home/user/${post.id}/post/${post.pid}`}
                 style={{ textDecoration: "none" }}
+                key={idx}
               >
-                <CustomCards post={post} idx={idx} key={idx} />{" "}
+                <CustomCards post={post} idx={idx} key={idx} />
               </NavLink>
             );
           })}
@@ -91,23 +126,6 @@ function Home() {
             <Pagination.Last />
           </Pagination>
         </div>
-        <Overlay target={target.current} show={show} placement="top">
-          {({ placement, arrowProps, show: _show, popper, ...props }) => (
-            <div
-              {...props}
-              style={{
-                position: "absolute",
-                backgroundColor: "rgba(100, 100, 100, 0.85)",
-                padding: "2px 10px",
-                color: "white",
-                borderRadius: 3,
-                ...props.style,
-              }}
-            >
-              Selected option for posts
-            </div>
-          )}
-        </Overlay>
       </div>
 
       <div className="right">
@@ -120,23 +138,6 @@ function Home() {
         >
           Top posts
         </h3>
-        <div className="placeholder">
-          <Placeholder as="p" animation="glow">
-            <Placeholder />
-            <Placeholder className="w-50" />
-            <Placeholder className="w-75" />
-            <Placeholder className="w-75" />
-            <Placeholder className="w-90" />
-          </Placeholder>
-          <Spinner animation="border" role="status" variant="primary"></Spinner>
-          <h3>Content loading</h3>
-          <Placeholder as="p" animation="wave">
-            <Placeholder className="w-90" bg="primary" />
-            <Placeholder className="w-75" bg="dark" />
-            <Placeholder className="w-75" />
-            <Placeholder className="w-90" />
-          </Placeholder>
-        </div>
       </div>
     </>
   );

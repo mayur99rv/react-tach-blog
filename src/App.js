@@ -11,11 +11,11 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/landing" element={<Landing />}></Route>
-          <Route path="/" element={<SharedLayout />}>
+          <Route path="/" element={<Landing />}></Route>
+          <Route path="/home" element={<SharedLayout />}>
             <Route index element={<Home />} />
-            <Route path="user/:id" element={<User />} />
-            <Route path="user/:id/post/:pid" element={<Post />} />
+            <Route path="/home/user/:id" element={<User />} />
+            <Route path="/home/user/:id/post/:pid" element={<Post />} />
           </Route>
         </Routes>
       </BrowserRouter>
