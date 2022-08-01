@@ -2,7 +2,6 @@ import { Alert, CloseButton } from "react-bootstrap";
 import { useState } from "react";
 import CustNavbar from "../components/CustNavbar";
 import CustAccordion from "../components/CustAccordion";
-
 import { Outlet } from "react-router-dom";
 
 function SharedLayout() {

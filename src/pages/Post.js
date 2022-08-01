@@ -66,14 +66,14 @@ function Post() {
       </div>
       <div className="comment-float">
         <button onClick={() => setToggle(!toggle)}>
-          🌟: {post.comments.length}
+          comments: {post.comments.length}
         </button>
       </div>
       <div className="center" style={{ width: "55%" }}>
         <div className="post-container">
           <div className="bg-img">
             <span>{post.bgimg}</span>
-            <img src={post.bgimg} alt="" srcset="" />
+            <img src={`/images/${post.image}`} alt="" srcset="" />
             {/* <img src="https://picsum.photos/640/640" alt="post" /> */}
           </div>
           <h2> 📜: {post.title}</h2>
@@ -84,8 +84,8 @@ function Post() {
             </p>
             <p> Published on ✍ : {post.Date}</p>
           </div>
-          <div className="w-50">
-            <img className="w-100" src={`/images/${post.image}`} alt="pos" />
+          <div className="w-75">
+            <img className="w-100" src={post.bgimg} alt="pos" />
           </div>
           <p>{post.body}</p>
         </div>

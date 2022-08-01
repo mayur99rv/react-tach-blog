@@ -1,5 +1,5 @@
 // navbar using react-bootstrap
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../App.css";
 import {
   Navbar,
@@ -12,8 +12,22 @@ import {
 } from "react-bootstrap";
 
 import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { LoginContext } from "../LoginContext";
+import { users } from "../data";
 
 function CustNavbar() {
+  const { user, setUser } = useContext(LoginContext);
+  console.log(user);
+  const [id, setId] = useState(null);
+
+  useEffect(() => {
+    if (user) {
+      const userId = users.find((u) => u.name === user.username).id;
+      setId(userId);
+    }
+  }, [user]);
+
   const [show, setShow] = useState(false);
   return (
     <>
@@ -63,11 +77,37 @@ function CustNavbar() {
             <NavLink to="/home" style={{ textDecoration: "none" }}>
               Home
             </NavLink>
-            <Nav.Link href="#">
-              <span className="signin" onClick={() => setShow(true)}>
-                Sign In
-              </span>
-            </Nav.Link>
+            {user ? (
+              <>
+                <NavLink
+                  className=""
+                  to={`/home/user/${id}`}
+                  style={{
+                    borderRadius: "50%",
+                    width: "60px",
+                    backgroundColor: "inherit",
+                  }}
+                >
+                  <img
+                    style={{
+                      width: "20px",
+                      height: "20px",
+                      transform: "translateY(-3px) translateX(5px) scale(2.2)",
+                    }}
+                    src="./hacker.png"
+                    alt=""
+                    srcset=""
+                  />
+                </NavLink>
+                <Nav.Link className="signout" href="#">
+                  <span onClick={() => setUser(null)}>Sign Out</span>
+                </Nav.Link>
+              </>
+            ) : (
+              <NavLink to="/home/login" style={{ textDecoration: "none" }}>
+                <span className="signin">Sign In</span>
+              </NavLink>
+            )}
           </Nav>
         </Container>
       </Navbar>

@@ -10,13 +10,13 @@ function CustAccordian() {
         >
           <Accordion.Header>
             <h4>
-              <Badge bg="secondary" text="light">
-                msg #1
+              <Badge bg="dark" text="light">
+                Guide to Login
               </Badge>
             </h4>
           </Accordion.Header>
           <Accordion.Body>
-            Welcome to tech blog.
+            username: mayur <br /> password: mayur
             <br />
           </Accordion.Body>
         </Accordion.Item>
@@ -31,7 +31,10 @@ function CustAccordian() {
               </Badge>
             </h4>
           </Accordion.Header>
-          <Accordion.Body>Thank you for visiting our site.</Accordion.Body>
+          <Accordion.Body>
+            More Features are in development.
+            <br /> Thank you for visiting our site.
+          </Accordion.Body>
         </Accordion.Item>
       </Accordion>
     </div>

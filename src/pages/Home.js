@@ -1,8 +1,7 @@
 import CustomCards from "../components/CustCards";
-import { ButtonGroup, Button, Pagination } from "react-bootstrap";
+import { ButtonGroup, Button } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import { users, userData } from "../data";
-import { NavLink } from "react-router-dom";
 
 function Home() {
   const allPosts = userData
@@ -58,7 +57,7 @@ function Home() {
         <div className="select-category">
           <ButtonGroup style={{ alignText: "center", border: "0px solid red" }}>
             <Button
-              style={{ borderRadius: "10px" }}
+              style={{ borderRadius: "10px", padding: "10px" }}
               className="mx-2 "
               variant="dark"
               onClick={function () {
@@ -69,7 +68,7 @@ function Home() {
               Most voted
             </Button>
             <Button
-              style={{ borderRadius: "10px" }}
+              style={{ borderRadius: "10px", padding: "10px" }}
               variant="dark"
               className="mx-2"
               onClick={() => sortByDate()}
@@ -96,35 +95,8 @@ function Home() {
           }
           {posts.map((post, idx) => {
             //   console.log(idx, post);
-            return (
-              <NavLink
-                to={`/home/user/${post.id}/post/${post.pid}`}
-                style={{ textDecoration: "none" }}
-                key={idx}
-              >
-                <CustomCards post={post} idx={idx} key={idx} />
-              </NavLink>
-            );
+            return <CustomCards post={post} idx={idx} key={idx} />;
           })}
-        </div>
-        <div className="pagination">
-          <Pagination>
-            <Pagination.First />
-            <Pagination.Prev />
-            <Pagination.Item>{1}</Pagination.Item>
-            <Pagination.Ellipsis />
-
-            <Pagination.Item>{10}</Pagination.Item>
-            <Pagination.Item>{11}</Pagination.Item>
-            <Pagination.Item active>{12}</Pagination.Item>
-            <Pagination.Item>{13}</Pagination.Item>
-            <Pagination.Item disabled>{14}</Pagination.Item>
-
-            <Pagination.Ellipsis />
-            <Pagination.Item>{20}</Pagination.Item>
-            <Pagination.Next />
-            <Pagination.Last />
-          </Pagination>
         </div>
       </div>
 

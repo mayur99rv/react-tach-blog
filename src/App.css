@@ -40,12 +40,15 @@ body{
   color: rgb(255, 255, 255) !important;
   border: 1px solid white;
   border-radius: 10px;
+  
 }
 
 .cust-nav a:hover{
   background-color: rgb(255, 255, 255) !important;
   border-radius: 10px;
   color: rgb(43, 63, 175) !important;
+  box-shadow: 0px 0px 30px 2px rgb(43, 63, 175);
+  font-weight: 500;
 }
 
 .cust-nav a:nth-child(2){
@@ -55,8 +58,16 @@ body{
   padding: 0.5rem 1rem !important;
   margin-left: 1rem;
   border: none;
+  font-weight: 400;
 }
 
+.signout{
+  background-color: var(--color-red) !important;
+  color: rgb(200, 200, 200) !important;
+  font-weight: 500 !important;
+   margin-left: 1rem;
+  border: none !important;
+}
 
 
 .space-for-nav{
@@ -419,4 +430,103 @@ h2.accordion-header button{
   color: white;
   border: none;
   border-radius: 15px;
+}
+
+.login{
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: var(--color-card);
+  border: 1px solid rgba(249, 249, 249, 0.495);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh;
+}
+.login h1{
+  background: -webkit-linear-gradient(25deg, var(--color-blue), rgb(238, 143, 48));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  font-size: 2.7rem;
+}
+label{
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #cec0e9;
+  padding-left:1rem;
+  margin-bottom: 0.25rem;
+}
+
+.login input{
+  width: 100%;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 15px;
+  margin-bottom: 1rem;
+  background-color: #352983;
+  color: #d4d4d4;
+  font-weight: 500;
+  padding-left: 1rem;
+}
+
+.login input:focus{
+  box-shadow: 0 0 20px var(--color-blue);
+  outline: none;
+  background-color: #282727;
+  color: white;
+}
+
+.login button{
+  background-color: #7132e6;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  padding: 0.5rem 2rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.login button:hover{
+  background-color: #7132e6c9;
+  box-shadow: 0 0 5px rgb(122, 60, 169);
+}
+
+.error{
+  color: red;
+  font-size: 1rem;
+  margin-top: 1rem;
+} 
+
+.profile{
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.profile-name{
+  text-align: center;
+}
+
+.profile-image{
+  width: 40%;
+  margin: 0 auto;
+}
+
+.profile-image img{
+  width: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid #fdfdfd;
+}
+
+.profile-posts h2{
+  margin-top: 1rem;
+  padding-left: 3rem;
+  font-size: 1.5rem;
+  color: white;
 }

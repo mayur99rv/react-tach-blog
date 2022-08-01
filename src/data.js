@@ -2,10 +2,12 @@ export const users = [
   {
     id: 1,
     name: "ryan",
+    profile: "/hacker.png",
   },
   {
     id: 2,
     name: "lucy",
+    profile: "/hacker.png",
   },
   {
     id: 3,
@@ -26,6 +28,7 @@ export const users = [
   {
     id: 7,
     name: "mayur",
+    profile: "/profile3.jpg",
   },
 ];
 
@@ -89,7 +92,7 @@ export const userData = [
         body: "This is ryans third post",
         Date: "2020-01-03",
         likes: 30,
-        image: "3.jpg",
+        image: "7.jpg",
         comments: [
           {
             uid: 2,
@@ -139,7 +142,7 @@ export const userData = [
         body: "This is ryans fifth post",
         Date: "2020-01-05",
         likes: 50,
-        image: "5.jpg",
+        image: "bg8.jpg",
         comments: [
           {
             uid: 2,
@@ -189,7 +192,7 @@ export const userData = [
         body: "This is ryans seventh post",
         Date: "2020-01-07",
         likes: 70,
-        image: "7.jpg",
+        image: "bg9.jpg",
         comments: [
           {
             uid: 2,
@@ -299,7 +302,7 @@ export const userData = [
         But no full-time development anymore. Promise?`,
         Date: "2020-01-10",
         likes: 100,
-        image: "10.jpg",
+        image: "bg7.jpg",
         comments: [
           {
             uid: 2,
@@ -380,7 +383,7 @@ export const userData = [
         body: "lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem.",
         Date: "2021-09-01",
         likes: 5,
-        image: "7.jpg",
+        image: "bg5.jpg",
         comments: [
           {
             uid: 2,
@@ -457,7 +460,7 @@ export const userData = [
         body: "lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem.",
         Date: "2022-03-21",
         likes: 3,
-        image: "8.jpg",
+        image: "bg6.jpg",
         comments: [
           {
             uid: 2,
@@ -482,7 +485,7 @@ export const userData = [
         body: "lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem.",
         Date: "2022-01-03",
         likes: 5,
-        image: "5.jpg",
+        image: "bg1.jpg",
         comments: [
           {
             uid: 2,
